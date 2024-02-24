@@ -8,27 +8,27 @@ int main()
 {
     setlocale(LC_ALL, "rus");
     //1
-   /* int sec,hours,min;
+    int sec,hours,min;
     cin >> sec;
     hours = sec / 3600;
     sec = sec - (hours * 3600);
     min = sec / 60;
     sec = sec - (min * 60);
-    cout << hours << ":" << min << ":" << sec;*/
+    cout << hours << ":" << min << ":" << sec;
     //2
-    /*float n;
+    float n;
     int dollars, cents;
     cin >> n;
     dollars = n ;
     n=n*100;
     cents = n - (dollars * 100);
-    cout << dollars << " долларов " << cents << " центов";*/
+    cout << dollars << " долларов " << cents << " центов";
     //3
-   /* int days, weeks;
+    int days, weeks;
     cin >> days;
     weeks = days / 7;
     days = days - (weeks * 7);
-    cout << weeks << " weeks " << days << " days";*/
+    cout << weeks << " weeks " << days << " days";
     //4
     cout << "Calculating running speed.";
     float distance, time, speed;
@@ -44,6 +44,13 @@ int main()
     time = seconds / 3600;
     speed = distance / time;
     cout << "You were running at speed " << speed;
+    //5
+    float euros, percent,sum;
+    cout << "сумма в евро: "; cin >> euros;
+    cout << "процент годовых: "; cin >> percent;
+    percent = percent / 100;
+    sum = (euros * percent) / 12;
+    cout << "доход в месяц: " << sum << "евро";
 }
 
 
