@@ -1,2 +1,3 @@
-# homeworke
-dlya moih domashek po c++
+#### homeworke
+### домашняя работа №1 (date)
+-лвпалвжпа
