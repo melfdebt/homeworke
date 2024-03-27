@@ -17,3 +17,5 @@
 ### дз (20.03)
 - добреутро.cpp
 двумерные массивы
+### дз (25.03) 
+- [function.cpp](https://github.com/kasirait/homeworke/blob/main/functions.cpp)
