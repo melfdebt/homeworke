@@ -19,3 +19,5 @@
 двумерные массивы
 ### дз (25.03) 
 - [function.cpp](https://github.com/kasirait/homeworke/blob/main/functions.cpp)
+### (27.03) функции: счастливое число и линейный поиск
+- [kitty.cpp](https://github.com/kasirait/homeworke/blob/main/kitty.cpp) 
