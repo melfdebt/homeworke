@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 void happyNumber(int num) {
-    if (num < 100000 || num>999999) {
+    if (num > 100000 || num<999999) {
         int a[6];
         for (int i = 0; i < 6; i++) {
             a[i] = num % 10;
