@@ -21,3 +21,5 @@
 - [function.cpp](https://github.com/kasirait/homeworke/blob/main/functions.cpp)
 ### (27.03) функции: счастливое число и линейный поиск
 - [kitty.cpp](https://github.com/kasirait/homeworke/blob/main/kitty.cpp) 
+### (1.04) перевести из 10сс в любую другую
+- [schisleniya.cpp](https://github.com/kasirait/homeworke/blob/main/schisleniya.cpp)
