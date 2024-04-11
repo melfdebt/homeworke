@@ -23,3 +23,5 @@
 - [kitty.cpp](https://github.com/kasirait/homeworke/blob/main/kitty.cpp) 
 ### (1.04) перевести из 10сс в любую другую
 - [schisleniya.cpp](https://github.com/kasirait/homeworke/blob/main/schisleniya.cpp)
+### (8.04) перегруженные функции
+- [abuabu.cpp](https://github.com/kasirait/homeworke/blob/main/abuabu.cpp)
