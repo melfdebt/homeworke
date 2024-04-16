@@ -25,3 +25,5 @@
 - [schisleniya.cpp](https://github.com/kasirait/homeworke/blob/main/schisleniya.cpp)
 ### (8.04) перегруженные функции
 - [abuabu.cpp](https://github.com/kasirait/homeworke/blob/main/abuabu.cpp)
+### (15.04)
+- [dinmassiv.cpp](https://github.com/kasirait/homeworke/blob/main/dinmassiv.cpp)
