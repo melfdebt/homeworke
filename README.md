@@ -27,3 +27,7 @@
 - [abuabu.cpp](https://github.com/kasirait/homeworke/blob/main/abuabu.cpp)
 ### (15.04)
 - [dinmassiv.cpp](https://github.com/kasirait/homeworke/blob/main/dinmassiv.cpp)
+### (22.04)
+- [kotiki.cpp](https://github.com/kasirait/homeworke/blob/main/kotiki.cpp)
+### (24.04)
+- 
