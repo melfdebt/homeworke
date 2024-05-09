@@ -32,4 +32,4 @@
 ### (24.04)
 - [sobachki.cpp](https://github.com/kasirait/homeworke/blob/main/sobachki.cpp)
 ### (6.05)
-- [meow.cpp])()
+- [meow.cpp](https://github.com/melfdebt/homeworke/blob/main/meow.cpp) 
