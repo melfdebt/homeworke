@@ -31,3 +31,5 @@
 - [kotiki.cpp](https://github.com/kasirait/homeworke/blob/main/kotiki.cpp)
 ### (24.04)
 - [sobachki.cpp](https://github.com/kasirait/homeworke/blob/main/sobachki.cpp)
+### (6.05)
+- [meow.cpp])()
