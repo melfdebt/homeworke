@@ -2,43 +2,48 @@
 //
 
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <string.h>
 #define random rand()%9;
 using namespace std;
 
-template<typename t>
-void quicksort(t* arr, int right, int left = 0) {
-	if (left > right) return;
-	int swapMaker = left - 1;
-	for (int i = 0; i <=right; i++)
-	{
-		if (arr[i] <= arr[right]) {
-			swapMaker++;
-			if (i > swapMaker) swap(arr[i], arr[swapMaker]);
+int strNum(string way) {
+	ifstream in(way);
+	int count=0;
+	if (in.is_open()) {
+		string str;
+		while (getline(in, str)) {
+			count++;
 		}
 	}
-	quicksort(arr, swapMaker - 1, left);
-	quicksort(arr, right, swapMaker + 1);
+	in.close();
+	return count;
 }
 
 int main()
 {
-	setlocale(LC_ALL, "rus");
-	srand(time(NULL));
 	int size;
 	cin >> size;
-	int* array = new int[size];
-	for (int i = 0; i < size; i++) {
-		array[i] = random;
-	}
-	for (int i = 0; i < size; i++) {
-		cout << array[i] << ' ';
-	}
-	cout << endl;
-	quicksort(array, size);
-	for (int i = 0; i < size; i++) {
-		cout << array[i] << ' ';
+	ifstream in;
+	in.open("baobab.txt");
+	if (in.is_open()) {
+		ofstream out;
+		out.open("emptyfail.txt", ios::app);
+		string str;
+		int len = strNum("baobab.txt");
+		for (int i = 0; i < len; i++)
+		{
+			string str;
+			getline(in, str);
+			if (str.length() < size) {
+				out << str << endl;
+			}
+		}
+		out.close();
 	}
 }
+
 
 
 
