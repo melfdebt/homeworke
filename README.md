@@ -36,4 +36,4 @@
 ## (8.05)
 - [workworkwork.cpp](https://github.com/melfdebt/homeworke/blob/main/workworkwork.cpp)
 ## (13.05)
--[homeworry.cpp](https://github.com/melfdebt/homeworke/blob/main/homeworry.cpp)
+- [homeworry.cpp](https://github.com/melfdebt/homeworke/blob/main/homeworry.cpp)
