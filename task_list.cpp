@@ -105,7 +105,9 @@ int main()
    int choice;
    string* array = new string[strNum(path)];
    int size = strNum(path);
-   while (true) {
+   bool flag = true;
+   while (flag) {
+       cout << "enter 1 to append task in list\n2 to delete one task\n3 to delete all tasks\n4 to look at list\n5 to close program" << endl;
        cout << "your choise: ";
        cin >> choice;
        switch (choice) {
@@ -154,10 +156,22 @@ int main()
                break;
            }
        }
+       case 4:
+       {
+           showTasks(array, size);
+           string str;
+           cout << "enter 'stop' or 'close' to close list"<<endl;
+           while (str == "") getline(cin, str);
+           system("cls");
+           break;
+       }
+       case 5:
+           flag = false;
        default:
            system("cls");
            break;
        }
    }
+   cout << "list saved" << endl;
 
 }
