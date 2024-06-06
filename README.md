@@ -39,3 +39,5 @@
 - [homeworry.cpp](https://github.com/melfdebt/homeworke/blob/main/homeworry.cpp)
 ## (20.05)
 - [task_list.cpp](https://github.com/melfdebt/homeworke/blob/main/task_list.cpp)
+## (22.05)
+-[students.cpp](https://github.com/melfdebt/homeworke/blob/main/students.cpp)
