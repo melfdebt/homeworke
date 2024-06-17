@@ -8,8 +8,8 @@
 #include <string.h>
 using namespace std;
 
-string path = "store.txt";
-int ID = 0;
+string path = "melfdebt.txt";
+int ID = 1;
 
 enum ProductCategory {
     CLOTHES,//
@@ -50,42 +50,59 @@ Product createProduct(string name, int category, float price, int quantity) {
     Product prod{ name,getCategory(category),price,quantity,ID++ };
     return prod;
 }
-Product createProduct(string name, int category, float price, int quantity,int ID) {
-    Product prod{ name,getCategory(category),price,quantity,ID };
-    ID++;
+Product createProduct(string name, int category, float price, int quantity, int id) {
+    Product prod{ name,getCategory(category),price,quantity,id };
+    ID=id++;
     return prod;
 }
 void addProduct(Shop& shop, Product product)
 {
     if (checkProduct(shop, product) == false) {
         cout << "this product was already added. you can update." << endl;
+        Sleep(2000);
         return;
     }
     Product* buf = new Product[shop.titleQuantity + 1];
+
     for (int i = 0; i < shop.titleQuantity; i++) {
         buf[i] = shop.products[i];
     }
     buf[shop.titleQuantity] = product;
-    delete[] shop.products;
-    shop.products = buf;
     shop.titleQuantity++;
+   
+    
+    shop.products = buf;
+}
+
+void addPrStart(Shop& shop, Product product) {
+    Product* buf = new Product [shop.titleQuantity];
+    buf[shop.titleQuantity - 1] = product;
+    shop.products = buf;
+    ID++;
 }
 
 void deleteProduct(Shop& shop, int ID) {
-    if (ID > shop.titleQuantity or ID < 0) {
+    if (ID > shop.titleQuantity+1 or ID == 0) {
         cout << "ID out of range" << endl;
+        Sleep(2000);
         return;
     }
     Product* buf = new Product[shop.titleQuantity - 1];
     for (int i = 0; i < shop.titleQuantity; i++) {
-        if (i < ID)buf[i] = shop.products[i];
-        else if (i == ID) continue;
-        else buf[i - 1] = shop.products[i];
+        if (shop.titleQuantity == 1) {
+            break;
+        }
+        else {
+            if (i < ID-1)buf[i] = shop.products[i];
+            else if (i == ID-1) continue;
+            else buf[i - 1] = shop.products[i];
+        }
     }
-    delete[] shop.products;
     shop.products = buf;
     shop.titleQuantity--;
+    ID--;
     cout << "succes" << endl;
+    Sleep(2000);
 }
 
 void deleteProductByName(Shop& shop, string name) {
@@ -93,14 +110,17 @@ void deleteProductByName(Shop& shop, string name) {
     for (int i = 0; i < shop.titleQuantity; i++) {
         if (shop.products[i].name == name) ID = shop.products[i].ID;
     }
-    if (ID == -1)cout << "this product doesn't exist" << endl;
+    if (ID == -1) {
+        cout << "this product doesn't exist" << endl;
+        Sleep(2000);
+    }
     else deleteProduct(shop, ID);
 }
 
-void printProduct(Product product);
+void printProduct(Product& product);
 
-void outputProducts(Shop shop) {
-    if (shop.titleQuantity == 0) {
+void outputProducts(Shop &shop) {
+    if (shop.titleQuantity <= 0) {
         cout << "shop is empty" << endl;
         return;
     }
@@ -135,7 +155,7 @@ string showCategory(ProductCategory category) {
         break;
     }
 }
-void printProduct(Product product) {
+void printProduct(Product& product) {
     cout << "Product name: " << product.name << endl << "Product category: "
         << showCategory(product.category) << endl << "Product price: " << product.price << endl
         << "Quantity of products: " << product.quantity << endl << "ID: " << product.ID << endl;
@@ -156,10 +176,8 @@ void outputByTitleQuantity(Shop shop, string title)
 
 void saveFile(Shop& shop) {
     fstream in(path);
-    if (in.is_open()) {
-        for (int i = 0; i < shop.titleQuantity; i++) {
-            in<< shop.products[i].ID << ";" << shop.products[i].name << ";" << shop.products[i].category << ";" << shop.products[i].price << ";" << shop.products[i].quantity << endl;
-        }
+    for (int i = 0; i < shop.titleQuantity; i++) {
+        in << shop.products[i].ID << ";" << shop.products[i].name << ";" << shop.products[i].category << ";" << shop.products[i].price << ";" << shop.products[i].quantity << ";" << endl;
     }
     in.close();
 }
@@ -168,7 +186,9 @@ int getstr() {
     ifstream in(path);
     if (in.is_open()) {
         string str;
-        while (getline(in, str)) count++;
+        while (getline(in, str)) {
+            if (str != "")count++;
+        }
     }
     in.close();
     return count;
@@ -206,26 +226,24 @@ ProductCategory getCategory(int cat) {
 
 Product strToProduct(string data) {
     string stdata[5];
-    data = data.substr(data.find(';') + 1, data.length());
     string str = "";
     for (int i = 0, count = 0; i <= data.length(); i++)
     {
-        if (data[i] == ';' or data[i] == '\n') {
+        if (data[i] == ';') {
             stdata[count++] = str;
             str = "";
         }
         else str += data[i];
     }
-    return createProduct(stdata[1], getCategory(stoi(stdata[1])), stof(stdata[3]), stoi(stdata[4]), stoi(stdata[0]));
+    return createProduct(stdata[1], getCategory(stoi(stdata[2])), stof(stdata[3]), stoi(stdata[4]), stoi(stdata[0]));
 }
+
 void readProducts(Shop& shop) {
-    shop.titleQuantity = getstr();
-    shop.products = new Product[shop.titleQuantity];
     ifstream in(path);
     if (in.is_open()) {
         string str;
         while (getline(in, str)) {
-            addProduct(shop, strToProduct(str));
+            addPrStart(shop, strToProduct(str));
         }
     }
     in.close();
@@ -248,20 +266,27 @@ void updateProduct(Shop& shop, string name, float price, int category, int quant
         cout << "updated" << endl;
     }
     else cout << "not found" << endl;
+    Sleep(2000);
 
 }
 
 int main()
 {
-
-    setlocale(LC_ALL, "rus");
+    //setlocale(LC_NUMERIC, "ru_RU.UTF-8");
+    SetConsoleOutputCP(1251);
+    SetConsoleCP(1251);
     bool work = true;
     int choice;
     Shop shop;
-
     shop.titleQuantity = getstr();
-    shop.products = new Product[shop.titleQuantity];
-    readProducts(shop);
+    if (shop.titleQuantity ==0) {
+        cout << "you can't work with store, because you don't have any products. to work, add something" << endl;
+    }
+    else {
+        shop.products = new Product[shop.titleQuantity];
+        readProducts(shop);
+    }
+    
     while (work) {
         cout << "1. вывод списка товаров" << endl;
         cout << "2. добавить товар" << endl;
@@ -271,7 +296,7 @@ int main()
         cout << "6. удалить товар по названию" << endl;
         cout << "7. обновить данные о продукте" << endl;
         cout << "0. закрыть приложение" << endl;
-        cout << "введите вашу задачу: ";
+        cout << "введите цифру: ";
         cin >> choice;
         switch (choice)
         {
@@ -298,7 +323,7 @@ int main()
             cout << "5. presents, hobbies, books" << endl << "6. sport and rest" << endl;
             cout << "7. сars" << endl << "8. products for kids" << endl;
             cout << "9. nutritional products and drinks" << endl << "10. equipment and products for the provision of services";
-            cout <<endl<< "введите номер категории: ";
+            cout << endl << "введите номер категории: ";
             cin >> category;
             category--;
             float price;
@@ -315,7 +340,7 @@ int main()
         }
         case 3:
         {
-            outputProducts(shop);
+            //outputProducts(shop);
             int id;
             cout << "введите ID товара: ";
             cin >> id;
@@ -371,7 +396,7 @@ int main()
             cout << "5. presents, hobbies, books" << endl << "6. sport and rest" << endl;
             cout << "7. сars" << endl << "8. products for kids" << endl;
             cout << "9. nutritional products and drinks" << endl << "10. equipment and products for the provision of services";
-            cout <<endl<< "введите номер категории: ";
+            cout << endl << "введите номер категории: ";
             cin >> category;
             category--;
             float price;
