@@ -41,3 +41,5 @@
 - [task_list.cpp](https://github.com/melfdebt/homeworke/blob/main/task_list.cpp)
 ## (22.05)
 - [students.cpp](https://github.com/melfdebt/homeworke/blob/main/students.cpp)
+## система управления магазином
+- [store2.0.cpp](https://github.com/melfdebt/homeworke/blob/main/store2.0.cpp)
