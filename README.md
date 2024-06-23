@@ -43,3 +43,9 @@
 - [students.cpp](https://github.com/melfdebt/homeworke/blob/main/students.cpp)
 ## система управления магазином
 - [store2.0.cpp](https://github.com/melfdebt/homeworke/blob/main/store2.0.cpp)
+##(14.06)
+- [sunshine.cpp](https://github.com/melfdebt/homeworke/blob/main/sunshine.cpp)
+## ()
+- []()
+## ()
+- []()
