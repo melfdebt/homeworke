@@ -1,5 +1,5 @@
 ### (30.09)
-- meeting_four
+- [meeting_four](https://github.com/melfdebt/homeworke/tree/main/meeting_four)
 ### домашняя работа №1 (28.02.24)
 - циклыкц.cpp
 ### дз (26.02.24)
