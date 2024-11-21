@@ -56,45 +56,58 @@ template<typename T>
 inline void BinaryTree<T>::remove(T value)
 {
 	TreeNode<T>* root = this->root;
+	TreeNode<T>* buf=nullptr;
 	bool flag = true;
 	while (flag) {
 		if (value > root->value) {
 			if (value == root->right->value) {
-				TreeNode<T>* buf = root->right;
-				delete root->right;
-				if (root->right->left == nullptr) {
-					root->right = buf->right;
-				}
-				else {
-					root->right = buf->left;
-			/*		if (root->right->left != nullptr) {
-						
-					}*/
-				}
+				buf = root->right;
 				flag = false;
 			}
-			root = root->right;
-			continue;
+			else {
+				root = root->right;
+				continue;
+			}
 		}
-		else if (root->value == value) {}//lkfljsls
+		//else if (root->value == value) {}//lkfljsls
 		else {
 			if (value == root->left->value) {
-				TreeNode<T>* buf = root->left;
-				delete root->left;
-				if (root->left->right == nullptr) {
-					root->left = buf->left;
-				}
-				else {
-					root->left = buf->right;
-					//if (buf->left != nullptr) {
-					//	//insert(buf->left->value)
-					//}
-
-				}
+				buf = root->left;
 				flag = false;
 			}
-			root->left;
-			continue;
+			else {
+				root = root->left;
+				continue;
+			}
+		}
+	}
+	//if (buf->left == nullptr && buf->right == nullptr) {
+	//	if (root->left->value = value) {
+	//		root->left = nullptr;
+	//	}
+	//	if (root->right->value == value) {
+	//		root->right = nullptr;
+	//	}
+	//}
+	//else if (buf->left == nullptr || buf->right == nullptr) {
+	//	if (buf->left == nullptr) {
+
+	//	}
+	//}
+	if (buf->right == nullptr) {
+		root->left = buf->left;
+	}
+	else {
+		root->left = buf->right;
+		if (buf->right->left != nullptr) {
+			TreeNode<T>* node = buf->right->left;
+			while (node->left != nullptr) {
+				node = node->left;
+			}
+			node->left = buf->left;
+		}
+		else {
+			buf->right->left = buf->left;
 		}
 	}
 }
