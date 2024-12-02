@@ -37,3 +37,8 @@ int MarkList::getExam()
 {
 	return exam;
 }
+
+string MarkList::getSubject()
+{
+	return subject;
+}
