@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string.h>
+#include "Lesson.h"
 using namespace std;
 
 class MarkList
@@ -15,6 +16,5 @@ public:
 	void setExam(int exam);
 	void show();
 	int getExam();
-
+	string getSubject();
 };
-
