@@ -5,10 +5,12 @@ class Student :
     public Human
 {
 private:
-    MarkList* markList;
+    MarkList** markLists;
+    int subjects;
 public:
     Student(string fio, string login, string password);
     void changePassword(string newPassword);
+    MarkList* getList(string subgect);
 
 };
 
