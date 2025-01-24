@@ -1,3 +1,9 @@
+#### UML
+- [задание_1]
+- [задание_2]()
+
+
+
 ### (30.09)
 - [meeting_four](https://github.com/melfdebt/homeworke/tree/main/meeting_four)
 ### домашняя работа №1 (28.02.24)
