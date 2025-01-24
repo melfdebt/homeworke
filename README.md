@@ -1,6 +1,6 @@
 #### UML
 - [задание_1]
-- [задание_2](https://github.com/melfdebt/homeworke/blob/main/задание_2.drawio)
+- [задание_2](https://github.com/melfdebt/homeworke/blob/main/задание_2.drawio.png)
 
 
 
